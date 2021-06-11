@@ -1,6 +1,7 @@
 tool
 extends EditorInspectorPlugin
 
+
 func can_handle(object):
 	return object is Light || object is Light2D
 

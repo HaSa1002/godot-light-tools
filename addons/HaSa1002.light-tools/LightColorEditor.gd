@@ -2,6 +2,7 @@ tool
 extends EditorProperty
 class_name LightColorEditor
 
+
 var enable_cb := CheckButton.new()
 var temperature := EditorSpinSlider.new()
 var color_filter := make_color_button()
@@ -14,6 +15,7 @@ var color_filter_hbox := make_hbox("Color Filter")
 var color_hbox := make_hbox("Color")
 
 var updating := false
+
 
 func _init():
 	label = "Use Color Temperature"
@@ -44,7 +46,6 @@ func _init():
 	
 	add_child(vbox)
 	set_bottom_editor(vbox)
-	pass
 
 
 func update_property():
@@ -92,7 +93,6 @@ func _on_color_filter_changed(filter_color: Color):
 	obj[get_edited_property()] = calculate_color(temperature.value) \
 			.blend(filter_color * filter_color.a)
 	emit_changed(get_edited_property(), obj[get_edited_property()])
-	pass
 
 
 func _on_temperature_changed(kelvin: int):
@@ -114,7 +114,6 @@ func _on_color_changed(lcolor: Color):
 		color.set_deferred("color", lcolor)
 	obj[get_edited_property()] = lcolor
 	emit_changed(get_edited_property(), obj[get_edited_property()])
-	pass
 
 
 static func make_label(text: String) -> Label:

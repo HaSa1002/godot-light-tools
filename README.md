@@ -1,4 +1,5 @@
 # Godot Light Tools
+![Godot Light Tools](icon.png) This icon is based on the OmniLight3D Icon of the the Godot Engine.
 
 ## Available Tools:
 
