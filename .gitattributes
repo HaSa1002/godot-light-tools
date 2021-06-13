@@ -5,7 +5,7 @@
 /.gitignore export-ignore
 /.pre-commit-config.yaml export-ignore
 /README.md export-ignore
-/LICENSE.md export-ignore
+/LICENSE export-ignore
 /CHANGELOG.md export-ignore
 /CONTRIBUTING.md export-ignore
 /icon.png export-ignore
