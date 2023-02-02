@@ -12,7 +12,7 @@ func _enter_tree():
 		old_icon = theme.get_icon("Light", "EditorIcons")
 	else:
 		old_icon = theme.get_icon("Object", "EditorIcons")
-	theme.set_icon("Light", "EditorIcons", preload("res://addons/HaSa1002.light-tools/Light.png"))
+	theme.set_icon("Light", "EditorIcons", load("res://addons/HaSa1002.light-tools/Light.png"))
 
 
 func _exit_tree():
