@@ -1,4 +1,4 @@
-tool
+@tool
 extends EditorProperty
 class_name LightColorEditor
 
@@ -19,8 +19,8 @@ var updating := false
 
 func _init():
 	label = "Use Color Temperature"
-	enable_cb.align = Button.ALIGN_LEFT
-	enable_cb.connect("toggled", self, "_on_enable_cb_toggled")
+	enable_cb.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	enable_cb.toggled.connect(_on_enable_cb_toggled)
 	add_child(enable_cb)
 	add_focusable(enable_cb)
 	add_focusable(color)
@@ -30,13 +30,13 @@ func _init():
 	temperature.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	temperature.min_value = 1000
 	temperature.max_value = 40_000
-	temperature.connect("value_changed", self, "_on_temperature_changed")
+	temperature.value_changed.connect(_on_temperature_changed)
 	temperature_hbox.add_child(temperature)
 
-	color_filter.connect("color_changed", self, "_on_color_filter_changed")
+	color_filter.color_changed.connect(_on_color_filter_changed)
 	color_filter_hbox.add_child(color_filter)
 
-	color.connect("color_changed", self, "_on_color_changed")
+	color.color_changed.connect(_on_color_changed)
 	color_hbox.add_child(color)
 
 	vbox.size_flags_horizontal = VBoxContainer.SIZE_EXPAND_FILL
@@ -48,14 +48,14 @@ func _init():
 	set_bottom_editor(vbox)
 
 
-func update_property():
+func _update_property():
 	updating = true
 	label = "Use color temperature"
 	var obj := get_edited_object()
 	if !obj.has_meta("use_color_temperature"):
 		obj.set_meta("use_color_temperature", true)
-	enable_cb.pressed = obj.get_meta("use_color_temperature")
-	_on_enable_cb_toggled(enable_cb.pressed)
+	enable_cb.button_pressed = obj.get_meta("use_color_temperature")
+	_on_enable_cb_toggled(enable_cb.button_pressed)
 
 	if !obj.has_meta("color_temperature"):
 		obj.set_meta("color_temperature", 6500)
@@ -138,7 +138,7 @@ static func make_color_button() -> ColorPickerButton:
 
 
 static func calculate_color(temperature: int) -> Color:
-	var light_color := Color.white
+	var light_color := Color.WHITE
 	var t = temperature / 100.0
 	if t <= 66:
 		light_color.r = 1.0

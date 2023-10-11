@@ -1,4 +1,4 @@
-tool
+@tool
 extends EditorPlugin
 
 var light3d = load("res://addons/HaSa1002.light-tools/LightColor.gd").new()
