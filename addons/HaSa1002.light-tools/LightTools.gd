@@ -1,7 +1,7 @@
 tool
 extends EditorPlugin
 
-var light3d := preload("res://addons/HaSa1002.light-tools/LightColor.gd").new()
+var light3d = load("res://addons/HaSa1002.light-tools/LightColor.gd").new()
 var old_icon: Texture
 var theme: Theme
 
@@ -21,7 +21,7 @@ func _exit_tree():
 
 
 func get_plugin_icon():
-	return preload("res://addons/HaSa1002.light-tools/ToolIcon.svg")
+	return load("res://addons/HaSa1002.light-tools/ToolIcon.svg")
 
 
 func get_plugin_name():
